@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="mydiv"
+      style="
+        background-color: chartreuse;
+        color: maroon;
+        border-radius: 10px;
+        border-style: groove;
+        font-size: 30px;
+      "
+    ></div>
+    <script>
+      const ar = document.getElementById("mydiv");
+      try {
+        navigator.geolocation.getCurrentPosition(repPos);
+      } catch (e) {
+        ar.innerHTML = e;
+      }
+      function repPos(pos) {
+        ar.innerHTML =
+          "My location coordinates are as follows: " +
+          pos.coords.latitude +
+          "," +
+          pos.coords.longitude;
+      }
+    </script>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3808.759390620596!2d78.5521423!3d17.3271545!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1730798231111!5m2!1sen!2sin"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </body>
+</html>

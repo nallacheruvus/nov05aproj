@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Doc</title>
+  </head>
+  <body>
+    <div
+      id="bdiv"
+      style="
+        background-color: crimson;
+        color: yellow;
+        font-size: x-large;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border-radius: 10px;
+      "
+    ></div>
+    <br />
+
+    <script>
+      const http = new XMLHttpRequest();
+      const a = document.getElementById("bdiv");
+      http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          a.innerHTML = http.responseText;
+        }
+      };
+      http.open("GET", "https://api.sampleapis.com/coffee/hot", true);
+      http.send();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax Calls</title>
+  </head>
+  <body>
+    <div
+      id="adiv"
+      style="
+        background-color: crimson;
+        color: yellow;
+        font-size: larger;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border-radius: 10px;
+      "
+    ></div>
+    <script>
+      const http = new XMLHttpRequest();
+      const a = document.getElementById("adiv");
+      http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          a.innerHTML = "<pre>" + http.responseText + "</pre>";
+        }
+      };
+      http.open("GET", "http://localhost:8080/sample.json", true);
+      http.send();
+    </script>
+  </body>
+</html>
